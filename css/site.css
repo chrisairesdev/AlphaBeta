@@ -1,6 +1,6 @@
 :root{
-    --primary-color: #1d5888;
-    --secondary-color: #ff993b;
+    --primary-color: #0000ff;
+    --secondary-color: #ff0000;
     --dark-color: #000000;
     --white-color: #dff3e4;
 }
@@ -45,10 +45,6 @@ main>.container{
     color: var(--secondary-color)
 }
 
-main>.container{
-    
-}
-
 footer{
     padding-right: 1rem;
 }
@@ -68,4 +64,17 @@ footer .social>a:hover{
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.Alpha{
+    color:Blue;
+}
+
+.Beta{
+    color:Red;
+}
+
+.AlphaBeta{
+    color:Purple;
+    font-weight: bold;
 }

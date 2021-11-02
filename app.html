@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Chris Aires</title>
+    <title>ALPHA BETA: A Coding Project By Chris Aires</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
 <!-- ==== Nav Section ==== -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/android-chrome-512x512.png" class="d-inline-block align-text-top" alt="Chris Aires, Dev Logo" width="30" height="30"> APP NAME</a>
+        <a class="navbar-brand" href="#"><img src="img/android-chrome-512x512.png" class="d-inline-block align-text-top" alt="Chris Aires, Dev Logo" width="30" height="30"> ALPHA BETA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,9 +49,42 @@
     </div>
 </nav>
 <!-- ==== Main Section ==== -->
-<main class="flex-shrink-0">
-    <div class="container">
-
+main class="flex-shrink-0">
+    <div class="container mt-5">
+        <div class="row row-cols-1 row-cols-lg-2">
+            <div class="col-lg-4 border-end border-2">
+                <h1>CENTI-SPRINTER: <br>A coding project.</h1>
+                <p class="lead">When it counts, you Alpha Beta. A javascript coding exercize using loops. Write a program that prints the numbers from 1 to 100 and for multiples of '3' display "<strong>Alpha</strong>" instead of the number and for the multiples of '5' display "<strong>Beta</strong>". If a multiple of both display "<strong>AlphaBeta</strong>".
+                </p>
+                <h2 class="mt-5 border-bottom border-2">Instructions</h2>
+                <p>Enter an Alpha and a Beta value. Press the button and the values will appear.</p>
+            </div>
+            <div class="col col-lg-8">
+                <div>
+                    <h5>Enter Values</h5>
+                    <form class="row gy-2 gx-3">
+                        <div class="col">
+                            <input id="alphaValue" type="number" class="form-control placeholder="Alpha Value" value=3 aria-label="Start Value">
+                        </div>
+                        <div class="col">
+                            <input id="betaValue" type="number" class="form-control" placeholder="Beta Value" value=5 aria-label="End Value">
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Start the Alpha Beta!</button>
+                        </div>
+                    </form>
+                    <h2 class="mt-5 border-bottom border-2">Results</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <tbody id="results">
+                                <!-- Results Go Here -->
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <!-- ==== Footer Section ==== -->
@@ -76,10 +109,22 @@
             </div>           
         </div>
     </footer>
+    <template id="abTemplate">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </template>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <script src="js/site.js"></script>
+    <script>
+        document.getElementById("btnSubmit").addEventListener("click",getValues);
+    </script>
 </body>
 </html>

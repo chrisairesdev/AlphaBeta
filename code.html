@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Chris Aires</title>
+    <title>ALPHA BETA: A Coding Project By Chris Aires</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
 <!-- ==== Nav Section ==== -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="img/android-chrome-512x512.png" class="d-inline-block align-text-top" alt="Chris Aires, Dev Logo" width="30" height="30"> APP NAME</a>
+        <a class="navbar-brand" href="#"><img src="img/android-chrome-512x512.png" class="d-inline-block align-text-top" alt="Chris Aires, Dev Logo" width="30" height="30"> ALPHA BETA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -51,21 +51,118 @@
 <!-- ==== Main Section ==== -->
 <main class="flex-shrink-0">
     <div class="container py-4 px-5 mt-5">
-        <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+        <h2 class="border-1 border-bottom border-dark">The Code for ALPHA BETA.</h2>
         <div class="row row-cols-1 row-cols-lg-2" >
             <div class="col-lg-8">
                 <pre class="line-numbers"><code class=language-javascript">
-                    //Call Hello World
-                    function HelloWorld(){
-                        alert("Hello World");
-                    }
+                    //get values from user. We need to get Alpha and Beta values.
+function getValues()
+{
+    //get use values from DOM
+    let alphaValue = document.getElementById("alphaValue").value;
+    let betaValue = document.getElementById("betaValue").value;
+
+    //parse for numbers
+    alphaValue = parseInt(alphaValue);
+    betaValue = parseInt(betaValue);
+
+    //check to make sure they are integers
+    if (Number.isInteger(alphaValue) && Number.isInteger(betaValue)) {
+    
+    //call AlphaBeta
+    let abArray = alphaBeta(alphaValue, betaValue);
+    //call displayData and write the values to the screen.
+    displayData(abArray);
+    }else{
+        alert("You must enter an integer.")
+    }
+}
+
+//Do alphaBeta
+function alphaBeta(alphaValue, betaValue)
+{
+      //initialize returnArray
+      let returnArray = [];
+      //loop from 1 to 100
+        for (let i = 1; i <= 100; i++) {
+            //1 check to see if visable by both (3 and 5)
+            //2 check to see if divisible by alpha value(3)
+            //3 check to see if dividible by beta(5)
+            if(i % alphaValue == 0 && i % betaValue == 0){
+                returnArray.push('AlphaBeta');
+            } else if (i % alphaValue == 0) {
+                returnArray.push('Alpha');
+            } else if (i % betaValue == 0) {
+                returnArray.push('Beta');
+            } else {
+                returnArray.push(i);
+            }
+        }
+     return returnArray;
+}
+
+//loop over array and create a table row for each itme.
+function displayData(abArray) {
+
+    //get the table body element from the page
+    let tableBody = document.getElementById("results");
+
+    //get the template row
+    let templateRow = document.getElementById("abTemplate")
+
+    //clear table first
+    tableBody.innerHTML = "";
+
+    for (let index = 0; index < abArray.length; index+=5) {
+        let tableRow = document. importNode(templateRow.content, true);
+
+        //grab use the td and put into array
+        let rowCols = tableRow.querySelectorAll("td");
+
+        rowCols[0].classList.add(abArray[index]);
+        rowCols[0].textContent = abArray[index];
+
+        rowCols[1].classList.add(abArray[index+1]);
+        rowCols[1].textContent = abArray[index+1];
+        
+        rowCols[2].classList.add(abArray[index+2]);
+        rowCols[2].textContent = abArray[index+2];
+        
+        rowCols[3].classList.add(abArray[index+3]);
+        rowCols[3].textContent = abArray[index+3];
+        
+        rowCols[4].classList.add(abArray[index+4]);
+        rowCols[4].textContent = abArray[index+4];
+
+
+        tableBody.appendChild(tableRow);
+    }   
+
+
+    //add all rows to table
+
+
+}
                 </code>
                 </pre>
             </div>
             <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays an alert with a message "Hello World."</p>
+                <p>The Code is structured in three functions.</p>
+                <h5 class="border-1 border-bottom border-dark">FUNCTION: "getValues"</h5>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The Alpha and Beta values are retrieved from the HTML page by using the Document Object Model (DOM). The values are then parsed to integers, and then checked to make sure they are integers.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The values are then sent to the 'alphaBeta' function.</p>
+                <P>&nbsp;&nbsp;&nbsp;&nbsp;The Array data retrieved from the 'alphaBeta' function is then sent to the 'displayData' function.</P>
+                
+                <h5 class="border-1 border-bottom border-dark">FUNCTION: "alphaBeta"</h5>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;An array is initialized. Then each value is checked up to three times to determine if it is a multiple of either of the values entered into the HTML page.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;First, it's checked to see if it's a mulitple of both inputs. If so, 'AlphaBeta' is assigned in place of the value. </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;If not, then value is checked to see if it's a multiple of the first input. If so, 'Alpha' is assigned in place of the value. </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;If not, then the value is finally checked to see if it's a multiple of the second input. If so, 'Beta' is assigned in place of the value. If not, then the value remains being an integer. All of the values are then sent back to the 'getValues' function to be processed by the 'displayData' function. If integers weren't passed, then an 'alert' is raised to require input from the user to provide integers.</p>
+
+                <h5 class="border-1 border-bottom border-dark">FUNCTION: "displayData"</h5>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;The results and template areas of the HTML pages are identified. Before displaying the data, the results area of the HTML page is cleared in case the script has been run before.</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;A loop is run to process results per row. Classes are added to each value for further processing of the values by CSS. Alpha multiples are in blue. Beta multiples are in red, and mulriples of both are in purple. </p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;As each row is processed, the rows are added to the results area of the HTML page.</p>
             </div>
         </div>
         
